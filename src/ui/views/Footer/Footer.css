@@ -1,0 +1,11 @@
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--darkGrey);
+  padding: var(--padding-m);
+}
+
+.name-footer {
+  color: var(--white);
+}

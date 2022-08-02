@@ -1,0 +1,27 @@
+.primary-button,
+.secondary-button {
+  padding: var(--padding-2xs) var(--padding-m);
+  border-radius: 3px;
+  border: unset;
+}
+
+.primary-button {
+  background-color: var(--darkGrey);
+  color: var(--white);
+}
+
+.primary-button:hover {
+  background-color: var(--yellow);
+  color: var(--black);
+}
+
+.secondary-button {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.secondary-button:hover {
+  background-color: var(--white);
+  color: var(--black);
+  border: 1px solid var(--black);
+}
