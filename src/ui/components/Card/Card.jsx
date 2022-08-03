@@ -2,22 +2,25 @@ import React from 'react'
 import './Card.css'
 import { Button } from '../Button/Button'
 
-export const Card = ({ name, image, specie, origin }) => {
+export const Card = ({ name, image, specie, gender }) => {
   return (
     <div className="character-card">
-      <h1 className="card-name">{name}</h1>
       <img className="card-image" src={image} alt={name} />
 
       <div className="character-info">
-        <div className="specie">
-          <p className="title-specie">Specie: </p>
-          <p className="card-specie">{specie}</p>
-        </div>
+        <p className="name">
+          <span>Name: </span> {name}
+        </p>
 
-        <div className="origin">
-          <p className="title-origin">Origin: </p>
-          <p className="card-origin">{origin}</p>
-        </div>
+        <p className="specie">
+          <span>Specie: </span>
+          {specie}
+        </p>
+
+        <p className="gender">
+          <span>Gender: </span>
+          <img src={`./assets/icons/${gender}.svg`} alt={gender} />
+        </p>
 
         <Button text="+ info" type="primary" />
       </div>

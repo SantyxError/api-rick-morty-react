@@ -34,7 +34,7 @@ export const Header = () => {
         <div className="search-box">
           <img
             className="search-icon"
-            src="./assets/images/search-icon.svg"
+            src="./assets/icons/search-icon.svg"
             alt="search"
           />
           <input type="text" placeholder="search" />

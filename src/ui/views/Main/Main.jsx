@@ -62,7 +62,7 @@ export const Main = () => {
             name={item.name}
             image={item.image}
             specie={item.species}
-            origin={item.origin.name}
+            gender={item.gender}
           />
         ))}
       </div>

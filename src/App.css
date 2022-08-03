@@ -1,13 +1,14 @@
 :root {
   --white: #fff;
   --black: #000;
+  --black-light: #222831;
   --red: #fa3821;
   --darkGrey: #404040;
   --blue: #61cae7;
   --lightgrey: #ababab;
   --lightblue: #caf0f8;
   --yellow: #fac833;
-  --secondary-color: ;
+  --radioactive-green: rgb(124, 252, 0);
   --primary-btn-color: #fa3821;
   --secondary-btn-color: transparent;
   --padding-3xs: 0.2rem;

@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   gap: var(--gap-xs);
-  background-color: #292c2f;
+  background-color: var(--black-light);
   padding: var(--padding-s);
 }
 
