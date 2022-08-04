@@ -1,6 +1,6 @@
 .main-container {
   flex-grow: 1;
-  background-color: var(--lightblue);
+  background-color: var(--secondary-black);
 }
 
 .main-container-cards {
@@ -8,7 +8,7 @@
   grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
   justify-content: center;
   padding: var(--padding-m);
-  gap: var(--gap-xl);
+  gap: var(--gap-2xl);
 }
 
 .pagination-container {

@@ -2,9 +2,10 @@
   --white: #fff;
   --black: #000;
   --black-light: #222831;
+  --secondary-black: #1e1e1f;
   --red: #fa3821;
   --darkGrey: #404040;
-  --blue: #61cae7;
+  --blue: #58cdd1;
   --lightgrey: #ababab;
   --lightblue: #caf0f8;
   --yellow: #fac833;
@@ -32,6 +33,7 @@
   --gap-m: 1.2rem;
   --gap-l: 1.4rem;
   --gap-xl: 1.6rem;
+  --gap-2xl: 2.2rem;
   --btn-radius: 2rem;
   --btn-padding: 0.5rem 1rem;
   --font-size-xs: 0.7rem;

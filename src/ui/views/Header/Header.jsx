@@ -2,53 +2,35 @@ import React, { useState } from 'react'
 import './Header.css'
 
 export const Header = () => {
-  const [isShowMenu, setIsShowMenu] = useState(false)
+  const [searchedFocus, setSearchedFocus] = useState(false)
 
-  const menuItems = [
-    { id: '1', name: 'Item 1' },
-    { id: '2', name: 'Item 2' },
-    { id: '3', name: 'Item 3' },
-  ]
-
-  const menuMobile = () => {
-    return (
-      <div className="hamburguer-menu">
-        <ul className="header-list">
-          {menuItems.map(item => (
-            <li className="header-list-item">{item.name}</li>
-          ))}
-        </ul>
-      </div>
-    )
-  }
+  console.log('searchedFocus', searchedFocus)
 
   return (
     <>
       <header className="header-box">
         <img
           className="header-img"
-          src="./assets/images/logo.png"
+          src="./assets/images/logo.svg"
           alt="logo rickg and morty"
         />
 
-        <div className="search-box">
-          <img
-            className="search-icon"
-            src="./assets/icons/search-icon.svg"
-            alt="search"
+        <div className={`search-box ${searchedFocus && 'search-box-focus'}`}>
+          <input
+            type="text"
+            placeholder="search"
+            onClick={() => setSearchedFocus(true)}
+            onBlur={() => setSearchedFocus(false)}
           />
-          <input type="text" placeholder="search" />
-
-          <img
-            className="menu-icon"
-            src="./assets/images/menu.svg"
-            alt="menu"
-            onClick={() => setIsShowMenu(prevIsShow => !prevIsShow)}
-          />
+          <button>
+            <img
+              className="search-icon"
+              src="./assets/icons/search-icon.svg"
+              alt="search"
+            />
+          </button>
         </div>
       </header>
-
-      {isShowMenu ? menuMobile() : ''}
     </>
   )
 }

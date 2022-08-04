@@ -42,7 +42,6 @@
   align-items: center;
   justify-items: center;
   border-radius: 5px;
-  border: 1px solid var(--black);
   padding: 0 0 var(--padding-m) 0;
   background-color: var(--black-light);
   color: var(--white);

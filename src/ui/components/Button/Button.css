@@ -19,7 +19,7 @@
 
 .draw-border {
   box-shadow: inset 0 0 0 4px #58cdd1;
-  color: #58afd1;
+  color: var(--blue);
   -webkit-transition: color 0.25s 0.0833333333s;
   transition: color 0.25s 0.0833333333s;
   position: relative;
