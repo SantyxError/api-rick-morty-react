@@ -6,6 +6,8 @@ export const Main = () => {
   const [characters, setCharacters] = useState([])
   const [pageCounter, setPageCounter] = useState(1)
   const [totalPages, setTotalPages] = useState(0)
+  const [searchedFocus, setSearchedFocus] = useState(false)
+  const [searchText, setSearchText] = useState('')
 
   useEffect(() => {
     callApiPages()
@@ -14,6 +16,10 @@ export const Main = () => {
   useEffect(() => {
     callApi()
   }, [pageCounter])
+
+  useEffect(() => {
+    apiSearcher()
+  }, [searchText])
 
   const callApi = async () => {
     try {
@@ -37,6 +43,20 @@ export const Main = () => {
     }
   }
 
+  const apiSearcher = async () => {
+    try {
+      const response = await fetch(
+        `https://rickandmortyapi.com/api/character/?name=${searchText}`,
+      )
+      if (response.status !== 400) {
+        const data = await response.json()
+        setCharacters(data.results)
+      }
+    } catch (e) {
+      console.log('Error: ', e)
+    }
+  }
+
   const firstPage = () => {
     setPageCounter(1)
   }
@@ -55,29 +75,53 @@ export const Main = () => {
 
   return (
     <main className="main-container">
-      <div className="main-container-cards">
-        {characters.map(item => (
-          <Card
-            key={item.id}
-            name={item.name}
-            image={item.image}
-            specie={item.species}
-            gender={item.gender}
+      <div className={`search-box ${searchedFocus && 'search-box-focus'}`}>
+        <input
+          className="search-input"
+          type="text"
+          placeholder="search"
+          onClick={() => setSearchedFocus(true)}
+          onBlur={() => setSearchedFocus(false)}
+          onChange={e => setSearchText(e.target.value)}
+        />
+        <button>
+          <img
+            className="search-icon"
+            src="./assets/icons/search-icon.svg"
+            alt="search"
           />
-        ))}
+        </button>
       </div>
 
-      <div className="pagination-container">
-        <button onClick={firstPage}>&lt;&lt;</button>
-        <button onClick={previousPage}> &lt; </button>
+      {characters ? (
+        <>
+          <div className="main-container-cards">
+            {characters.map(item => (
+              <Card
+                key={item.id}
+                name={item.name}
+                image={item.image}
+                specie={item.species}
+                gender={item.gender}
+              />
+            ))}
+          </div>
 
-        <div className="pageNumber">
-          {pageCounter} / {totalPages}
-        </div>
+          <div className="pagination-container">
+            <button onClick={firstPage}>&lt;&lt;</button>
+            <button onClick={previousPage}> &lt; </button>
 
-        <button onClick={nextPage}>&gt;</button>
-        <button onClick={lastPage}>&gt;&gt;</button>
-      </div>
+            <div className="pageNumber">
+              {pageCounter} / {totalPages}
+            </div>
+
+            <button onClick={nextPage}>&gt;</button>
+            <button onClick={lastPage}>&gt;&gt;</button>
+          </div>
+        </>
+      ) : (
+        <p className="not-found">'{searchText}' Is Not found</p>
+      )}
     </main>
   )
 }
